@@ -10,18 +10,16 @@ import java.time.Instant;
 @Component
 public class MotionDataMapper {
 
-    public MotionDataDto motionDataToMotionDataDto(MotionData  motionData) {
-        return new MotionDataDto(
-                motionData.getId(),
-                motionData.getSensorName(),
-                motionData.getTimestamp().toString()
-        );
-    }
+  public MotionDataDto motionDataToMotionDataDto(MotionData motionData) {
+    return new MotionDataDto(
+        motionData.getId(),
+        motionData.getSensorName(),
+        motionData.getTimestamp().toString());
+  }
 
-    public MotionData createMotionDataDtoToMotionData(CreateMotionDataDto createMotionDataDto) {
-        return new MotionData(
-                createMotionDataDto.sensorName(),
-                Instant.parse(createMotionDataDto.timestamp())
-        );
-    }
+  public MotionData createMotionDataDtoToMotionData(CreateMotionDataDto createMotionDataDto) {
+    return new MotionData(
+        createMotionDataDto.sensorName()
+    );
+  }
 }
