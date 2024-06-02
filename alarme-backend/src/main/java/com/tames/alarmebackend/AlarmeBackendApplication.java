@@ -9,5 +9,4 @@ public class AlarmeBackendApplication {
   public static void main(String[] args) {
     SpringApplication.run(AlarmeBackendApplication.class, args);
   }
-
 }

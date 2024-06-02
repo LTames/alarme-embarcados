@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: "alarme-backend"
+  datasource:
+    url: "jdbc:postgresql://localhost:5000/alarme-db"
+    username: "postgres"
+    password: "postgres"
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+server:
+  servlet:
+    context-path: "api/v1"
