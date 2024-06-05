@@ -9,9 +9,7 @@ import { MotionData } from '../interfaces/motion-data';
 export class MotionDataService {
   private readonly http = inject(HttpClient);
 
-  public readonly motionData$ = this.http.get<MotionData>(
+  public readonly motionData$ = this.http.get<MotionData[]>(
     `${environment.apiUrl}/motion-data`,
   );
-
-  constructor() {}
 }

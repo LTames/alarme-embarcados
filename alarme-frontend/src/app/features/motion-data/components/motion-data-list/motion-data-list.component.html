@@ -1,1 +1,56 @@
-<p>motion-data-list works!</p>
+<p-table
+  #dt1
+  [value]="motionData"
+  dataKey="id"
+  styleClass="p-datatable-gridlines p-datatable-striped"
+  sortField="timestamp"
+  [sortOrder]="-1"
+  [scrollable]="true"
+  [columns]="columns"
+  scrollHeight="flex"
+  [globalFilterFields]="['id', 'sensorName', 'timestamp']"
+>
+  <ng-template pTemplate="caption">
+    <div class="flex justify-between items-center">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+          placeholder="Buscar palavras-chave"
+        />
+      </span>
+
+      <p-button
+        icon="pi pi-external-link"
+        label="Exportar"
+        (click)="dt1.exportCSV()"
+      />
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="id">
+        ID
+        <p-sortIcon field="id" />
+      </th>
+      <th pSortableColumn="sensorName">
+        Nome do sensor
+        <p-sortIcon field="sensorName" />
+      </th>
+      <th pSortableColumn="timestamp">
+        Data / Hora
+        <p-sortIcon field="timestamp" />
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-record>
+    <tr>
+      <td>{{ record.id }}</td>
+      <td>{{ record.sensorName }}</td>
+      <td>{{ record.timestamp | date: "MM/dd/yyyy - HH:mm:ss" }}</td>
+    </tr>
+  </ng-template>
+</p-table>
