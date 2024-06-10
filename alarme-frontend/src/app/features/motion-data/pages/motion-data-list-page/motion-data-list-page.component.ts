@@ -14,7 +14,7 @@ import { AsyncPipe } from '@angular/common';
 export class MotionDataListPageComponent {
   private readonly motionDataService = inject(MotionDataService);
 
-  public readonly motionData$ = interval(5000).pipe(
+  public readonly motionData$ = interval(2500).pipe(
     startWith(null),
     concatMap(() => this.motionDataService.motionData$),
   );
