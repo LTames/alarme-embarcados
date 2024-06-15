@@ -11,10 +11,11 @@
   [globalFilterFields]="['id', 'sensorName', 'timestamp']"
 >
   <ng-template pTemplate="caption">
-    <div class="flex justify-between items-center">
+    <div class="flex flex-wrap gap-4 justify-between items-center">
       <span class="p-input-icon-left">
         <i class="pi pi-search"></i>
         <input
+          class="text-xs sm:text-base w-full sm:w-auto"
           pInputText
           type="text"
           (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
@@ -23,15 +24,17 @@
       </span>
 
       <p-button
+        styleClass="text-xs sm:text-base"
         icon="pi pi-external-link"
         label="Exportar"
         (click)="dt1.exportCSV()"
+        size="small"
       />
     </div>
   </ng-template>
 
   <ng-template pTemplate="header">
-    <tr>
+    <tr class="text-xs sm:text-base">
       <th pSortableColumn="id">
         ID
         <p-sortIcon field="id" />
@@ -47,7 +50,7 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-record>
-    <tr>
+    <tr class="text-xs sm:text-base">
       <td>{{ record.id }}</td>
       <td>{{ record.sensorName }}</td>
       <td>{{ record.timestamp | date: "MM/dd/yyyy - HH:mm:ss" }}</td>
